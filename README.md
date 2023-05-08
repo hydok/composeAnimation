@@ -8,3 +8,8 @@ Android Compose를 이용한 애니메이션 구현
 - 눈 drop 속도
 - 해당 갯수 내에서 재활용
 - *`LaunchedEffect`*  활용한 frame update
+
+
+## 1. Water Animation
+
+진행중
