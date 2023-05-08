@@ -10,6 +10,7 @@ Android Compose를 이용한 애니메이션 구현
 - *`LaunchedEffect`*  활용한 frame update
 
 
-## 1. Water Animation
+
+## 2. Water Animation
 
 진행중
