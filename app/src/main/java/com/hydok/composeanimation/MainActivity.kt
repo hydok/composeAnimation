@@ -3,10 +3,7 @@ package com.hydok.composeanimation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -17,12 +14,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.hydok.composeanimation.colorchange.ColorScreen
 import com.hydok.composeanimation.snow.SnowScreen
 import com.hydok.composeanimation.ui.theme.ComposeAnimationTheme
+import com.hydok.composeanimation.water.WaterScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setStatusBarTransparent()
         setContent {
             ComposeAnimationTheme {
                 Surface(
@@ -35,15 +35,29 @@ class MainActivity : ComponentActivity() {
                         composable(route = "main") {
                             Column(
                                 modifier = Modifier.fillMaxSize().padding(10.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
                             ) {
+
                                 MyButton("SNOW") {
                                     navController.navigate("snow")
+                                }
+                                MyButton("WATER") {
+                                    navController.navigate("water")
+                                }
+                                MyButton("COLOR CHANGE") {
+                                    navController.navigate("color")
                                 }
                             }
                         }
                         composable(route = "snow") {
                             SnowScreen()
+                        }
+                        composable(route = "water") {
+                            WaterScreen()
+                        }
+                        composable(route = "color") {
+                            ColorScreen()
                         }
                     }
                 }
