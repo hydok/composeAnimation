@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hydok.composeanimation.colorchange.ColorScreen
+import com.hydok.composeanimation.paging.PagingScreen
 import com.hydok.composeanimation.snow.SnowScreen
 import com.hydok.composeanimation.ui.theme.ComposeAnimationTheme
 import com.hydok.composeanimation.water.WaterScreen
@@ -34,11 +35,14 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "main") {
                         composable(route = "main") {
                             Column(
-                                modifier = Modifier.fillMaxSize().padding(10.dp),
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(10.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
 
+                                Text(text = "Animation")
                                 MyButton("SNOW") {
                                     navController.navigate("snow")
                                 }
@@ -47,6 +51,10 @@ class MainActivity : ComponentActivity() {
                                 }
                                 MyButton("COLOR CHANGE") {
                                     navController.navigate("color")
+                                }
+                                Divider(Modifier.padding(10.dp))
+                                MyButton("PAGING") {
+                                    navController.navigate("paging")
                                 }
                             }
                         }
@@ -58,6 +66,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = "color") {
                             ColorScreen()
+                        }
+                        composable(route = "paging") {
+                            PagingScreen()
                         }
                     }
                 }
