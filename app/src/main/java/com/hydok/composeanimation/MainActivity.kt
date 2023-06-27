@@ -1,5 +1,6 @@
 package com.hydok.composeanimation
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.hydok.composeanimation.colorchange.ColorScreen
 import com.hydok.composeanimation.paging.PagingScreen
 import com.hydok.composeanimation.snow.SnowScreen
+import com.hydok.composeanimation.textchange.TextChange
 import com.hydok.composeanimation.ui.theme.ComposeAnimationTheme
 import com.hydok.composeanimation.water.WaterScreen
 
@@ -52,6 +54,9 @@ class MainActivity : ComponentActivity() {
                                 MyButton("COLOR CHANGE") {
                                     navController.navigate("color")
                                 }
+                                MyButton("TEXT CHANGE") {
+                                    navController.navigate("textchange")
+                                }
                                 Divider(Modifier.padding(10.dp))
                                 MyButton("PAGING") {
                                     navController.navigate("paging")
@@ -69,6 +74,11 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = "paging") {
                             PagingScreen()
+                        }
+                        composable(route = "textchange") {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                TextChange()
+                            }
                         }
                     }
                 }
