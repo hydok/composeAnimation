@@ -14,3 +14,9 @@ Android Compose를 이용한 애니메이션 구현
 ## 2. Water Animation
 
 진행중
+
+## 3. Color Change Animation
+
+
+
+## 4. Compose Paging
